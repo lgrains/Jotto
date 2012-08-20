@@ -20,7 +20,7 @@ debugger
         @word_sets << WordSet.new({:word => line.chomp.downcase})
         @num_entries += 1
       end 
-    end 
+    end
   end
   
  
