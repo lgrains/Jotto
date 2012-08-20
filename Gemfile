@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
 gem 'simple_form'
+gem 'pony'
 
 
 # Gems used only for assets and not required
