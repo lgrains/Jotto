@@ -27,16 +27,17 @@ ActiveRecord::Schema.define(:version => 20120821122258) do
   create_table "players", :force => true do |t|
     t.string   "name"
     t.string   "games_won"
+    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "words", :force => true do |t|
+    t.string   "type"
+    t.integer  "player_id"
     t.integer  "dictionary_id"
     t.string   "word"
-    t.string   "bitstring",                 :default => "00000000000000000000000000"
-    t.integer  "secret_word_for_player_id"
-    t.integer  "guess_word_for_player_id"
+    t.string   "bitstring"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

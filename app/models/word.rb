@@ -21,3 +21,11 @@ class Word < ActiveRecord::Base
   end
 
 end
+
+class SecretWord < Word
+  belongs_to :player
+end
+
+class UserGuess < Word
+  belongs_to :player
+end

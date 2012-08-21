@@ -3,13 +3,17 @@ Jotto::Application.routes.draw do
 
   resources :secret_words
 
-  resources :players
+  # resources :players
 
-  resources :games
+  resources :games do
+    resources :dictionaries
+    resources :players
+    resources :words
+  end
   
-  resources :words
-  
-  resources :dictionaries
+  # resources :words
+  # 
+  # resources :dictionaries
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

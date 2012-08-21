@@ -1,11 +1,12 @@
 class CreateWords < ActiveRecord::Migration
   def change
     create_table :words do |t|
+      t.string :type  #will be nil, guess,secret
+      t.integer :player_id
+      
       t.integer :dictionary_id
       t.string :word
-      t.string :bitstring, :default=>'0'*26
-      t.integer :secret_word_for_player_id
-      t.integer :guess_word_for_player_id
+      t.string :bitstring
       t.timestamps
     end
   end
