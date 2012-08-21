@@ -1,4 +1,7 @@
-= simple_form_for @player do |form|
+= simple_form_for @player do |f|
+
+  = f.input :name
+  = f.input :secret_word
 
   -if @player.errors.any?
     #errorExplanation
@@ -9,4 +12,4 @@
 
 
   .actions
-    = form.button :submit
+    = f.button :submit

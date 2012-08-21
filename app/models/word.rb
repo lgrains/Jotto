@@ -1,6 +1,7 @@
 class Word < ActiveRecord::Base
 
   belongs_to :dictionary
+  belongs_to :player
 
   def initialize(word, params={})    
     super(params)

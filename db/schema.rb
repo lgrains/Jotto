@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120821122555) do
+ActiveRecord::Schema.define(:version => 20120821122258) do
 
   create_table "dictionary", :force => true do |t|
     t.integer  "game_id"
@@ -31,25 +31,12 @@ ActiveRecord::Schema.define(:version => 20120821122555) do
     t.datetime "updated_at"
   end
 
-  create_table "secret_words", :force => true do |t|
-    t.integer  "word_id"
-    t.integer  "player_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "user_guesses", :force => true do |t|
-    t.integer  "word_id"
-    t.integer  "num_jots"
-    t.integer  "player_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "words", :force => true do |t|
     t.integer  "dictionary_id"
     t.string   "word"
-    t.string   "bitstring",     :default => "00000000000000000000000000"
+    t.string   "bitstring",                 :default => "00000000000000000000000000"
+    t.integer  "secret_word_for_player_id"
+    t.integer  "guess_word_for_player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
