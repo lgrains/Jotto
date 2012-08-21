@@ -1,0 +1,17 @@
+%h1 Listing secret_words
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @secret_words.each do |secret_word|
+    %tr
+      %td= link_to 'Show', secret_word
+      %td= link_to 'Edit', edit_secret_word_path(secret_word)
+      %td= link_to 'Destroy', secret_word, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Secret word', new_secret_word_path

@@ -1,0 +1,21 @@
+%h1 Listing user_guesses
+
+%table
+  %tr
+    %th Word
+    %th Num jots
+    %th
+    %th
+    %th
+
+  - @user_guesses.each do |user_guess|
+    %tr
+      %td= user_guess.word
+      %td= user_guess.num_jots
+      %td= link_to 'Show', user_guess
+      %td= link_to 'Edit', edit_user_guess_path(user_guess)
+      %td= link_to 'Destroy', user_guess, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New User guess', new_user_guess_path

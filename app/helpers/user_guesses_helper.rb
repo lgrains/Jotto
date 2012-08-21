@@ -1,0 +1,2 @@
+module UserGuessesHelper
+end

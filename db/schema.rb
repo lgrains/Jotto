@@ -11,20 +11,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418222752) do
+ActiveRecord::Schema.define(:version => 20120821122555) do
 
   create_table "dictionary", :force => true do |t|
+    t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "word_sets", :force => true do |t|
-    t.integer  "dictionary_id"
-    t.string   "word"
-    t.string   "bitstring"
+  create_table "games", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "bitstring_int"
+  end
+
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.string   "games_won"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "secret_words", :force => true do |t|
+    t.integer  "word_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_guesses", :force => true do |t|
+    t.integer  "word_id"
+    t.integer  "num_jots"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "words", :force => true do |t|
+    t.integer  "dictionary_id"
+    t.string   "word"
+    t.string   "bitstring",     :default => "00000000000000000000000000"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

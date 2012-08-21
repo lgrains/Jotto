@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Word:
+  = @user_guess.word
+%p
+  %b Num jots:
+  = @user_guess.num_jots
+
+= link_to 'Edit', edit_user_guess_path(@user_guess)
+\|
+= link_to 'Back', user_guesses_path

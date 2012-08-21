@@ -1,8 +1,7 @@
 class CreateDictionary < ActiveRecord::Migration
   def self.up
     create_table :dictionary do |t|
-      t.string :word
-      t.string :bitstring
+      t.integer :game_id
       
       t.timestamps
     end

@@ -1,0 +1,12 @@
+= simple_form_for @secret_word do |form|
+
+  -if @secret_word.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@secret_word.errors.count, "error")} prohibited this #{SecretWord.name.titleize} from being saved:"
+      %ul
+        - @secret_word.errors.full_messages.each do |msg|
+          %li= msg  
+
+
+  .actions
+    = form.button :submit

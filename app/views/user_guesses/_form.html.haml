@@ -1,0 +1,14 @@
+= simple_form_for @user_guess do |form|
+
+  -if @user_guess.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@user_guess.errors.count, "error")} prohibited this #{UserGuess.name.titleize} from being saved:"
+      %ul
+        - @user_guess.errors.full_messages.each do |msg|
+          %li= msg  
+
+  = form.input :word, :label => 'Word'
+  = form.input :num_jots, :label => 'Num Jots'
+
+  .actions
+    = form.button :submit
