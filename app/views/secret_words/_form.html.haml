@@ -1,4 +1,5 @@
 = simple_form_for @secret_word do |form|
+  = form.input :word_unit
 
   -if @secret_word.errors.any?
     #errorExplanation
@@ -6,6 +7,8 @@
       %ul
         - @secret_word.errors.full_messages.each do |msg|
           %li= msg  
+          
+
 
 
   .actions

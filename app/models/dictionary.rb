@@ -24,7 +24,7 @@ class Dictionary < ActiveRecord::Base
   end  
  
   def random_word
-    words[rand(words.length)].word    
+    words[rand(words.length)].word_unit    
   end
   
   def to_s

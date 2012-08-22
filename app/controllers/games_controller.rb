@@ -45,10 +45,9 @@ class GamesController < ApplicationController
     @game.players << @player
     
     #set up secret word
-    word = Word.find_by_word(params[:secret_word])
-    word.type = 'SecretWord'
+    word = Word.find_by_word_unit(params[:secret_word])
     word.save!
-    SecretWord.set(@player.id,word.word)
+    @player.secret_word = word
     
     
     
