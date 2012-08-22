@@ -7,11 +7,10 @@
     %th
 
   - @games.each do |game|
+    = game.players[0].name
     %tr
-      %td= link_to 'Show', game
-      %td= link_to 'Edit', edit_game_path(game)
-      %td= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete
-
+      %td= link_to 'Join Game', game
+      
 %br
 
 = link_to 'New Game', new_game_path

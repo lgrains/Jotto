@@ -1,0 +1,21 @@
+
+#content
+  %h1
+    JOTTO!
+  %hr
+  
+  %h2
+    Find a game
+  %ul
+    - @games.each do |game|
+      %li
+        = game.players[0].name
+    
+  %h2
+    Start a game
+
+    = form_for(:new_game_player, :url => new_game_player_path) do |f|
+      = f.text_field :nickname, :maxlength => "45", :value => "enter your nickname"
+      = f.text_field :secret_word, :maxlength => "45", :value => "enter your secret word (5 letters only)"
+
+      = image_submit_tag("/images/start_game.png", :id => "start_game_button")

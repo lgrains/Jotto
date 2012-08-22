@@ -1,15 +1,17 @@
 Jotto::Application.routes.draw do
-  resources :user_guesses
-
-  resources :secret_words
+  
 
   # resources :players
 
   resources :games do
     resources :dictionaries
     resources :players
-    resources :words
   end
+  resources :players do
+    resources :user_guesses
+    resources :secret_words
+  end
+  resources :words
   
   # resources :words
   # 

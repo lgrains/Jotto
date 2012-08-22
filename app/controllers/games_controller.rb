@@ -40,7 +40,18 @@ class GamesController < ApplicationController
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(params[:game])
+    @game = Game.create(params[:game])
+    @player = Player.create(params[:nickname])
+    @game.players << @player
+    
+    #set up secret word
+    word = Word.find_by_word(params[:secret_word])
+    word.type = 'SecretWord'
+    word.save!
+    SecretWord.set(@player.id,word.word)
+    
+    
+    
 
     respond_to do |format|
       if @game.save

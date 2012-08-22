@@ -6,6 +6,17 @@
  *= require_tree . 
 */
 
+
+// Include some nice mixins
+//@import "compass/css3";
+//@import "sassybuttons";
+
+// Example: import partial stylesheet named "_users.scss"
+//@import "users";
+
+
+
+
 .simple_form label {
   float: left;
   width: 100px;

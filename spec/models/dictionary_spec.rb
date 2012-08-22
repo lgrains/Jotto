@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Dictionary do
-  before(:each) do
+  before(:all) do
     @dict = Dictionary.new
   end
 

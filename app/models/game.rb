@@ -1,9 +1,8 @@
 class Game < ActiveRecord::Base
   has_one :dictionary
   
-  attr_accessible :players_attributes
-   has_many :players
-  accepts_nested_attributes_for :players
+  
+   has_and_belongs_to_many :players
   
   def initialize(player1="", player2="", params={})
     super(params)

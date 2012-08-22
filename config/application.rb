@@ -55,5 +55,7 @@ module Jotto
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     
+    # Precompile *all* assets, except those that start with underscore
+    config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
   end
 end
