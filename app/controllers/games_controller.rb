@@ -41,11 +41,11 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.create(params[:game])
-    @player = Player.create(params[:nickname])
+    @player = Player.create(params[:game][:player][:player1])
     @game.players << @player
-    
+ Rails.logger.info "games_controller_46 params[:secret_word] is #{params[:game][:player][:secret_word]}"   
     #set up secret word
-    word = WordSet.find_by_word(params[:secret_word])
+    word = WordSet.find_by_word(params[:game][:player][:secret_word])
     word.save!
     @player.secret_word_id = word.id    
 

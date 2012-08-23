@@ -6,10 +6,9 @@
         - @game.errors.full_messages.each do |msg|
           %li= msg  
           
-  = f.fields_for :game do |builder|
-    = builder.fields_for :player do |bn| 
-      = bn.input :player1
-      = bn.input :secret_word
+  = f.fields_for :player do |p|
+    = p.input :player1
+    = p.input :secret_word
 
 
   .actions

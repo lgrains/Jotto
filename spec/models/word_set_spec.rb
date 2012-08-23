@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Word do
-  subject {Word.new('abhor')}
+describe WordSet do
+  subject {WordSet.new('abhor')}
   
   it {should be_valid}
   
@@ -10,8 +10,8 @@ describe Word do
   end  
   
   it "returns correct number of common letters with another Word" do
-    word1 = Word.new("abide")
-    word2 = Word.new( "files")
+    word1 = WordSet.new("abide")
+    word2 = WordSet.new( "files")
     subject.num_common_letters(word1).should == 2
     subject.num_common_letters(word2).should == 0
     word1.num_common_letters(word1).should == 5
