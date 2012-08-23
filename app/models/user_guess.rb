@@ -4,5 +4,5 @@
 
 class UserGuess < ActiveRecord::Base
   belongs_to :player
-  has_many :word
+  belongs_to :word
 end

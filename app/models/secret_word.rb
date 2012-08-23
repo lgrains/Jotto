@@ -3,5 +3,5 @@
 
 class SecretWord < ActiveRecord::Base  
   belongs_to :player
-  has_one :word
+  belongs_to :word
 end
