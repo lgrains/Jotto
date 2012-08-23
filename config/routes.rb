@@ -9,7 +9,6 @@ Jotto::Application.routes.draw do
   end
   resources :players do
     resources :user_guesses
-    resources :secret_words
   end
   
   resources :dictionaries do

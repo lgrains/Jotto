@@ -3,9 +3,7 @@ class WordSet < ActiveRecord::Base
   belongs_to :dictionary
   has_many :user_guesses
   has_many :players, :through => :user_guesses
-  has_one :secret_word
-  has_one :player, :through => :secret_word
-  
+
 
   def initialize(word, params={})    
     super(params)

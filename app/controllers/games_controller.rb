@@ -47,10 +47,7 @@ class GamesController < ApplicationController
     #set up secret word
     word = WordSet.find_by_word(params[:secret_word])
     word.save!
-    @player.secret_word = word
-    
-    
-    
+    @player.secret_word_id = word.id    
 
     respond_to do |format|
       if @game.save
