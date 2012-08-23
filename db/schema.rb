@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120822190342) do
+ActiveRecord::Schema.define(:version => 20120823151744) do
 
   create_table "dictionary", :force => true do |t|
     t.integer  "game_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "games", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "game_url"
   end
 
@@ -33,27 +33,24 @@ ActiveRecord::Schema.define(:version => 20120822190342) do
   create_table "players", :force => true do |t|
     t.string   "name"
     t.string   "games_won"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "secret_words", :id => false, :force => true do |t|
-    t.integer "player_id"
-    t.integer "word_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "secret_word_id"
   end
 
   create_table "user_guesses", :force => true do |t|
     t.integer "player_id"
-    t.integer "word_id"
+    t.integer "word_set_id"
     t.integer "jots"
   end
 
-  create_table "words", :force => true do |t|
+  create_table "word_sets", :force => true do |t|
     t.integer  "dictionary_id"
-    t.string   "word_unit"
+    t.string   "word"
     t.string   "bitstring"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "word_used_in_game_by"
   end
 
 end

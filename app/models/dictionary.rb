@@ -1,7 +1,7 @@
 class Dictionary < ActiveRecord::Base
   self.table_name = "dictionary"
   
-  has_many :words, :dependent => :destroy
+  has_many :word_sets, :dependent => :destroy
   belongs_to :game
   
   attr_accessor :num_entries
@@ -16,7 +16,7 @@ class Dictionary < ActiveRecord::Base
   def add_words
     File.open('db/Dictionary_5_noperms', 'r')  do |file|
       file.each_line do |line|
-        words << Word.create(line.chomp.downcase)
+        word_sets << WordSet.create(line.chomp.downcase)
         @num_entries += 1
       end 
     end
@@ -24,7 +24,7 @@ class Dictionary < ActiveRecord::Base
   end  
  
   def random_word
-    words[rand(words.length)].word_unit    
+    word_sets[rand(word_sets.length)].word
   end
   
   def to_s

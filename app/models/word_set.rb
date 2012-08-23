@@ -1,4 +1,4 @@
-class Word < ActiveRecord::Base
+class WordSet < ActiveRecord::Base
 
   belongs_to :dictionary
   has_many :user_guesses
@@ -9,14 +9,14 @@ class Word < ActiveRecord::Base
 
   def initialize(word, params={})    
     super(params)
-    self.word_unit = word
+    self.word = word
     self.bitstring = '0'*26
-    self.word_unit.codepoints.each{|i| self.bitstring[i-97] = '1'}
+    self.word.codepoints.each{|i| self.bitstring[i-97] = '1'}
 
   end
 
   def to_s
-    "Word: " + word_unit + " Bitstring: " + bitstring
+    "Word: " + word + " Bitstring: " + bitstring
   end
 
   #This would make a good one-liner for J Norman

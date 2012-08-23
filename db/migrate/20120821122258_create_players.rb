@@ -3,7 +3,6 @@ class CreatePlayers < ActiveRecord::Migration
     create_table :players do |t|
       t.string :name
       t.string :games_won
-      t.integer :game_id
 
       t.timestamps
     end

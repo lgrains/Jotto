@@ -1,0 +1,2 @@
+class WordSetController < ApplicationController
+end
