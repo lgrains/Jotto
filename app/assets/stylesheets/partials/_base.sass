@@ -1,0 +1,108 @@
+@import "compass/reset"
+
+// Add cross browser support
+@import "compass/support"
+
+// Add compass utilities: http://compass-style.org/docs/reference/compass/utilities/
+@import "compass/utilities"
+
+// Add the debug grid
+@import "blueprint/debug"
+
+// Here is where you can define your constants for your application and to configure the blueprint framework.
+// Feel free to delete these if you want keep the defaults:
+
+$blueprint-grid-columns: 24
+$blueprint-container-size: 950px
+$blueprint-grid-margin: 10px
+
+// Use this to calculate the width based on the total width.
+// Or you can set $blueprint-grid-width to a fixed value and unset $blueprint-container-size -- it will be calculated for you.
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin
+
+@import blueprint
+
+
+// Colors
+$bcm_dark_blue: #538397
+$bcm_blue:  #64b4cb
+$bcm_light-blue: #D8F2F9
+$black: #000
+$white: #fff
+
+// top div height
+$top_div_height: 1px
+
+// side padding width
+$side_padding_width: $blueprint-grid-width + $blueprint-grid-margin
+
+=bg_color_and_height($color, $height)
+  background-color: $color
+  height: $height
+
+.clear_both
+  clear: both
+
+.hidden
+  display: none
+
+// use this for columns deeper than 1 level with border
+=last_column_with_border($n, $border_size)
+  +column($n, true)
+  width: $blueprint_grid_width * $n + $blueprint_grid_margin * ($n - 1) - $border_size
+
+=setup_footer_text
+  +column(10)
+  padding: 25px 0px 0px 50px
+  width: 350px
+  color: #1D657D
+
+// set the label on the left and the input field on the right
+=input_div($width: 100px)
+  label
+    display: block
+    width: $width
+    +float_left
+    text-align: right
+    padding-right: 10px
+
+// set the border
+=set_border
+  border: 1px dotted black
+  border-top: 3px solid black
+
+
+// creates a consistent, generic button for links
+=generic_button_link($columns)
+  a
+    padding: 2px
+    text-decoration: none
+    color: white
+    -moz-border-radius: 18px
+    -webkit-border-radius: 18px
+    +column($columns)
+    margin: 5px
+    background-color: #64B4CC
+    text-align: center
+    font:
+      size: 16px
+      family: 'Arial'
+      weight: normal
+  a:hover
+    padding: 2px
+    text-decoration: underline
+    -moz-border-radius: 18px
+    -webkit-border-radius: 18px
+
+=facebook_login
+  +float_right
+  position: relative
+  top: -5px
+  margin-right: 60px
+  a
+    +hover-link
+  span
+    position: relative
+    top: -6px
+    color: #fff
+    font-size: 13px

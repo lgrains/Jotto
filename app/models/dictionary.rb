@@ -4,7 +4,7 @@ class Dictionary < ActiveRecord::Base
   has_many :word_sets, :dependent => :destroy
   belongs_to :game
   
-  attr_accessor :num_entries
+  attr_accessor :num_entries, :alpha_array
   
   def initialize(params={})
     super(params)
@@ -28,7 +28,11 @@ class Dictionary < ActiveRecord::Base
   end
   
   def to_s
-    "word_sets: #{@word_sets}"
+    "word_sets: #{word_sets}"
+  end
+  
+  def find_words_with_start(starting_letter)
+    word_sets.find_all{|e| e.word[0] == starting_letter}
   end
   
   
