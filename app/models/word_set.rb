@@ -14,7 +14,7 @@ class WordSet < ActiveRecord::Base
   end
 
   def to_s
-    "Word: " + word + " Bitstring: " + bitstring
+    word
   end
 
   #This would make a good one-liner for J Norman

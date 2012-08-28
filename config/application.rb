@@ -57,5 +57,7 @@ module Jotto
     
     # Precompile *all* assets, except those that start with underscore
     config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
+    
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'jquery-ui-1.8.23.custom').to_s
   end
 end

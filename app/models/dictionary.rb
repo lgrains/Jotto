@@ -31,6 +31,7 @@ class Dictionary < ActiveRecord::Base
     "word_sets: #{word_sets}"
   end
   
+  #This will be used on the View Dictionary screen
   def find_words_with_start(starting_letter)
     word_sets.find_all{|e| e.word[0] == starting_letter}
   end

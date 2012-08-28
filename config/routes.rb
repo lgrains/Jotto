@@ -4,16 +4,18 @@ Jotto::Application.routes.draw do
   # resources :players
 
   resources :games do
-    resources :dictionaries
+    resources :dictionary, :except => :show
     resources :players
   end
   resources :players do
     resources :user_guesses
   end
   
-  resources :dictionaries do
+  resources :dictionary do
     resources :words
   end
+  
+  match 'games/:id/dictionary/show_words' => 'dictionary#show_words', :as "dictionary_show_words"
   
   # resources :words
   # 

@@ -1,0 +1,8 @@
+
+#word_rows
+  - word_list.each_with_index do |w, index|
+    - if index > 0 && index % 12 == 0
+      %br
+      =  w.to_s
+    - else
+      =  w.to_s
